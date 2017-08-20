@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PlayWith.D365.dummy")]
+[assembly: AssemblyTitle("PlayWith.D365.WebApi")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PlayWith.D365.dummy")]
+[assembly: AssemblyProduct("PlayWith.D365.WebApi")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("74bb3b7e-8cc9-4c77-ac28-499913bd2089")]
+[assembly: Guid("72278371-4ee8-45d5-b2de-c75dd73447be")]
 
 // Version information for an assembly consists of the following four values:
 //

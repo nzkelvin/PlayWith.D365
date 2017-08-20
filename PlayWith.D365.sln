@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26510.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayWith.D365.dummy", "PlayWith.D365.dummy\PlayWith.D365.dummy.csproj", "{74BB3B7E-8CC9-4C77-AC28-499913BD2089}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayWith.D365.WebApi", "PlayWith.D365.WebApi\PlayWith.D365.WebApi.csproj", "{72278371-4EE8-45D5-B2DE-C75DD73447BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{74BB3B7E-8CC9-4C77-AC28-499913BD2089}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{74BB3B7E-8CC9-4C77-AC28-499913BD2089}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{74BB3B7E-8CC9-4C77-AC28-499913BD2089}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{74BB3B7E-8CC9-4C77-AC28-499913BD2089}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72278371-4EE8-45D5-B2DE-C75DD73447BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72278371-4EE8-45D5-B2DE-C75DD73447BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72278371-4EE8-45D5-B2DE-C75DD73447BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72278371-4EE8-45D5-B2DE-C75DD73447BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
