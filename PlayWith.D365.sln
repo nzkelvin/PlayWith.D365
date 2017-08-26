@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26510.0
+VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayWith.D365.WebApi", "PlayWith.D365.WebApi\PlayWith.D365.WebApi.csproj", "{72278371-4EE8-45D5-B2DE-C75DD73447BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayWith.AOP", "PlayWith.AOP\PlayWith.AOP.csproj", "{9D096F92-AA2C-4DE2-8358-31FF3C66E76C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{72278371-4EE8-45D5-B2DE-C75DD73447BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72278371-4EE8-45D5-B2DE-C75DD73447BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72278371-4EE8-45D5-B2DE-C75DD73447BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D096F92-AA2C-4DE2-8358-31FF3C66E76C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D096F92-AA2C-4DE2-8358-31FF3C66E76C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D096F92-AA2C-4DE2-8358-31FF3C66E76C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D096F92-AA2C-4DE2-8358-31FF3C66E76C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D40B9512-9974-4AAE-BB74-CB1030ADB3E3}
 	EndGlobalSection
 EndGlobal
