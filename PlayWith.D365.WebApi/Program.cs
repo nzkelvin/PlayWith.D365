@@ -9,6 +9,7 @@ using System.Net.Http.Headers;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace PlayWith.D365.WebApi
 {
@@ -16,32 +17,29 @@ namespace PlayWith.D365.WebApi
     {
         //todo: value from configure 
         //todo: impersonation
+        //todo: call WF and actions
+        //todo: send business requests, like create sales order from opprotunity.
+        //todo: upload attachment
         static void Main(string[] args)
         {
-            string xrmWebApiUrl = "https://fusion5d365demo1.api.crm6.dynamics.com/api/data/v8.2/";
-            string clientId = "4bcd5a01-f1f9-4e06-a52a-f218f730403d";
-            string username = "admin@fusion5066.onmicrosoft.com";
-            SecureString pwd = new SecureString();
-
             // Query
             try
             {
-                // Get config
+                // Get config values
                 FileConfiguration config = new FileConfiguration("Xrm");
-                xrmWebApiUrl = config.ServiceUrl;
-                clientId = config.ClientId;
-                username = config.Username;
-                pwd = config.Password;
+                string xrmWebApiUrl = config.ServiceUrl;
+                string clientId = config.ClientId;
+                string username = config.Username;
+                SecureString pwd = config.Password;
 
-                // Query
+                // Prep http client
                 var dynClient = new DynamicsHttpClient(xrmWebApiUrl, username, pwd, clientId);
                 dynClient.GetAccessToken();
-                var resp =
-                    dynClient.GetAsync("organizations?$select=_basecurrencyid_value").Result.Content
-                        .ReadAsStringAsync().Result; // todo: compare FetchXML with oData
-                var jResp = JObject.Parse(resp);
-                
-                GetBaseCurrency(dynClient);
+
+                // Do somethine here
+                //GetMyIdFromScratch(xrmWebApiUrl, clientId, username, pwd);
+                //GetBaseCurrency(dynClient);
+                //CreatContact(dynClient);
             }
             catch (Exception e)
             {
@@ -49,6 +47,31 @@ namespace PlayWith.D365.WebApi
             }
 
             Console.Read();
+        }
+
+        public static void CreatContact(DynamicsHttpClient dynClient)
+        {
+            JObject contact = new JObject();
+            contact.Add("firstname", "Sean");
+            contact.Add("lastname", "Pean");
+
+            HttpRequestMessage createMsg =
+                new HttpRequestMessage(HttpMethod.Post, dynClient.BaseOrganizationApiUrl + "contacts")
+                {
+                    Content = new StringContent(contact.ToString(), Encoding.UTF8, "application/json")
+                };
+
+            Task<HttpResponseMessage> resp = dynClient.SendAsync(createMsg);
+            resp.Wait();
+
+            if (resp.IsCompleted && resp.Result.IsSuccessStatusCode)
+            {
+                string entityUri = resp.Result.Headers.GetValues("OData-EntityId").FirstOrDefault();
+            }
+
+            Task<string> message = resp.Result.Content.ReadAsStringAsync();
+            message.Wait();
+            throw new HttpException($"Operation failed: {resp.Result.ReasonPhrase}, HTTP Response: {message.Result}");
         }
 
         private static void GetBaseCurrency(HttpClient client)
@@ -73,13 +96,8 @@ namespace PlayWith.D365.WebApi
             Console.WriteLine($"User Id: {userId}");
         }
 
-        private static void GetMyIdFromScratch()
+        private static void GetMyIdFromScratch(string xrmWebApiUrl, string clientId, string username, SecureString pwd)
         {
-            string xrmWebApiUrl = "https://fusion5d365demo1.api.crm6.dynamics.com/api/data/v8.2/";
-            string clientId = "4bcd5a01-f1f9-4e06-a52a-f218f730403d";
-            string username = "admin@fusion5066.onmicrosoft.com";
-            string pwd = "Mob0278013024";
-
             AuthenticationParameters authParams = AuthenticationParameters.CreateFromResourceUrlAsync(new Uri(xrmWebApiUrl)).Result;
             string authority = authParams.Authority; // Can also manually get from Azure Portal > App registration > EndPoints
             string resource = authParams.Resource;
