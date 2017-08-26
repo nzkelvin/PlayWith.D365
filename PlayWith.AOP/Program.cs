@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace PlayWith.AOP
 {
-    class Program
+    /// <summary>
+    /// Inspired By https://github.com/jlattimer/D365FodyLogging/
+    /// </summary>
+    public class Program
     {
         [Time]
         static void Main(string[] args)
